@@ -1,0 +1,11 @@
+version: "3.0"
+
+services:
+  api:
+    container_name: "test"
+    build:
+      context: ./app
+    volumes:
+      - ./app:/app
+    ports:
+      - 8080:8080
