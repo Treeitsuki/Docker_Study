@@ -1,11 +1,14 @@
-version: "3.0"
+version: '3'
 
 services:
-  api:
-    container_name: "test"
+  
+  demo-api:
     build:
-      context: ./app
-    volumes:
-      - ./app:/app
+      context: "./backend"
+      dockerfile: "Dockerfile"
     ports:
-      - 8080:8080
+      - 8000:8000 
+    volumes:
+      - ./backend/api:/src
+    environment:
+      - ENVIRON
