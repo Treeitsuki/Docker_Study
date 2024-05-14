@@ -12,3 +12,13 @@ services:
       - ./backend/api:/src
     environment:
       - ENVIRON
+  
+  node:
+    build:
+      context: "./frontend"
+      dockerfile: "Dockerfile"
+    volumes:
+      - ./:/usr/src/app
+    command: sh -c 'cd ./frontend/react-app && yarn start'
+    ports:
+      - '3000:3000'
